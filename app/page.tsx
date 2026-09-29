@@ -55,8 +55,9 @@ export default function Page() {
     <main dir={language === "ar" ? "rtl" : "ltr"} className="min-h-screen bg-white text-[#10285d]">
       <header className="sticky top-0 z-50 border-b border-[#e8eef7] bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-[78px] max-w-[1440px] items-center gap-8 px-5 lg:px-10">
-          <a href="#home" className="shrink-0" aria-label="NVS Star home">
-            <Image src={logo} alt="NVS Star Building Materials Trading LLC" width={178} height={86} className="h-[65px] w-[136px] object-contain object-center sm:w-[170px]" unoptimized />
+          <a href="#home" className="flex shrink-0 items-center gap-3" aria-label="NVS Star home">
+            <Image src={logo} alt="NVS Star Building Materials Trading LLC" width={178} height={86} className="h-[58px] w-[112px] object-contain object-center sm:h-[65px] sm:w-[136px]" unoptimized />
+            <span className="hidden leading-tight sm:block"><strong className="block text-[15px] font-extrabold tracking-tight text-[#10285d]">NVS STAR</strong><span className="text-[11px] font-medium text-[#607397]">Building Materials</span></span>
           </a>
           <nav className="hidden flex-1 items-center justify-center gap-8 text-[14px] font-semibold lg:flex">
             <a className="nav-link active" href="#home">{t.home}</a>
