@@ -60,7 +60,7 @@ export default function Page() {
           </a>
           <nav className="hidden flex-1 items-center justify-center gap-8 text-[14px] font-semibold lg:flex">
             <a className="nav-link active" href="#home">{t.home}</a>
-            <a className="nav-link" href="#products">{t.products} <ChevronDown size={14} /></a>
+            <a className="nav-link" href="/products">{t.products} <ChevronDown size={14} /></a>
             <a className="nav-link" href="#about">{t.about}</a>
             <a className="nav-link" href="#contact">{t.contact}</a>
           </nav>
@@ -74,7 +74,6 @@ export default function Page() {
             </label>
             <div className="flex h-10 w-[220px] items-center gap-2 rounded-lg border border-[#d9e5f4] bg-[#f5f9fe] px-3 text-xs text-[#526789]"><Search size={17} /><span>Search products...</span></div>
             <div className="flex items-center gap-2 whitespace-nowrap text-sm font-bold"><Phone size={18} fill="currentColor" /> +971 558 863 912</div>
-            <a className="orange-button px-5 py-3 text-sm" href="#contact">Get a Quote <ArrowRight size={16} /></a>
           </div>
           <div className="ml-auto flex items-center gap-2 lg:hidden">
             <select value={language} onChange={(event) => setLanguage(event.target.value as "en" | "ar")} className="rounded-md border border-[#d9e5f4] bg-[#f5f9fe] px-2 py-2 text-xs font-semibold text-[#10285d]" aria-label={t.language}>
@@ -93,7 +92,7 @@ export default function Page() {
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.48em] text-white/80">{t.eyebrow}</p>
           <h1 className="max-w-[650px] text-5xl font-extrabold leading-[1.08] tracking-tight text-white md:text-7xl">{t.title} <span className="text-[#ff8a1d]">{t.titleAccent}</span></h1>
           <p className="mt-6 max-w-[600px] text-lg leading-8 text-white/90 md:text-xl">{t.description}</p>
-          <div className="mt-8 flex flex-wrap gap-4"><a href="#products" className="orange-button px-7 py-4">{t.explore} <ArrowRight size={18} /></a><a href="#contact" className="outline-button px-7 py-4">{t.quote}</a></div>
+          <div className="mt-8 flex flex-wrap gap-4"><a href="/products" className="orange-button px-7 py-4">{t.explore} <ArrowRight size={18} /></a></div>
           <div className="mt-14 grid max-w-[650px] grid-cols-2 gap-y-6 border-t border-white/25 pt-6 text-white sm:grid-cols-4">
             {[{icon: ShieldCheck, label:"Wide Range", sub:"of Products"},{icon: BadgeCheck, label:"Trusted Brands", sub:"& Quality"},{icon: PackageCheck, label:"Competitive", sub:"Pricing"},{icon: Truck, label:"Fast & Reliable", sub:"Supply"}].map((item) => <div key={item.label} className="flex items-center gap-3 border-r border-white/20 last:border-0 sm:justify-center"><item.icon size={29} /><span className="text-center text-xs font-semibold leading-5">{item.label}<br />{item.sub}</span></div>)}
           </div>
@@ -101,7 +100,7 @@ export default function Page() {
       </section>
 
       <section id="products" className="mx-auto max-w-[1440px] px-6 py-20 lg:px-20">
-        <div className="mb-10 flex flex-wrap items-end justify-between gap-5"><div><p className="section-kicker">Our products <span /></p><h2 className="section-title">Building Materials for Every Need</h2><p className="mt-2 text-base text-[#607397]">Explore our wide range of high quality building materials for residential, commercial and industrial projects.</p></div><a href="#contact" className="outline-blue-button">View All Products <ArrowRight size={16} /></a></div>
+        <div className="mb-10 flex flex-wrap items-end justify-between gap-5"><div><p className="section-kicker">Our products <span /></p><h2 className="section-title">Building Materials for Every Need</h2><p className="mt-2 text-base text-[#607397]">Explore our wide range of high quality building materials for residential, commercial and industrial projects.</p></div><a href="/products" className="outline-blue-button">View All Products <ArrowRight size={16} /></a></div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">{products.map((product) => <article key={product.name} className="product-card"><div className="relative h-36 overflow-hidden bg-[#eaf1f8]"><Image src={product.image} alt={product.name} fill className="object-cover" unoptimized /></div><div className="p-4"><h3 className="font-bold text-[#10285d]">{product.name}</h3><p className="mt-1 min-h-10 text-xs leading-5 text-[#607397]">{product.detail}</p><a href="#contact" className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-[#005bd4]">View Products <ArrowRight size={14} /></a></div></article>)}</div>
       </section>
 
