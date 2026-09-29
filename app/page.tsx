@@ -91,9 +91,9 @@ export default function Page() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#062552]/95 via-[#092d5c]/80 to-[#092d5c]/10" />
         <div className="relative mx-auto flex min-h-[260px] max-w-[1440px] flex-col justify-center px-5 py-7 sm:min-h-[430px] sm:px-6 sm:py-14 lg:px-20">
           <p className="mb-2 text-[8px] font-semibold uppercase tracking-[0.38em] text-white/80 sm:mb-4 sm:text-xs sm:tracking-[0.48em]">{t.eyebrow}</p>
-          <h1 className="max-w-[650px] text-[31px] font-extrabold leading-[1.02] tracking-tight text-white sm:text-5xl md:text-7xl">{t.title} <span className="text-[#ff8a1d]">{t.titleAccent}</span></h1>
+          <h1 className="max-w-[650px] text-[31px] font-extrabold leading-[1.02] tracking-tight text-white sm:text-5xl md:text-7xl"><span className="block">{t.title}</span><span className="block text-[#ff8a1d]">{t.titleAccent}</span></h1>
           <p className="mt-3 max-w-[600px] text-[11px] leading-[1.35] text-white/90 sm:mt-6 sm:text-lg sm:leading-8 md:text-xl">{t.description}</p>
-          <div className="mt-4 flex flex-wrap gap-3 sm:mt-8 sm:gap-4"><a href="/products" className="orange-button px-4 py-2.5 text-[10px] sm:px-7 sm:py-4 sm:text-base">{t.explore} <ArrowRight size={14} /></a><a href="#contact" className="outline-button px-4 py-2.5 text-[10px] sm:px-7 sm:py-4 sm:text-base">{t.quote}</a></div>
+          <div className="mt-4 flex flex-wrap gap-3 sm:mt-8 sm:gap-4"><a href="/products" className="orange-button px-4 py-2.5 text-[10px] sm:px-7 sm:py-4 sm:text-base">{t.explore} <ArrowRight size={14} /></a></div>
           <div className="mt-5 grid max-w-[650px] grid-cols-4 gap-1 border-t border-white/25 pt-3 text-white sm:mt-14 sm:gap-y-6 sm:pt-6">
             {[{icon: ShieldCheck, label:"Wide Range", sub:"of Products"},{icon: BadgeCheck, label:"Trusted Brands", sub:"& Quality"},{icon: PackageCheck, label:"Competitive", sub:"Pricing"},{icon: Truck, label:"Fast & Reliable", sub:"Supply"}].map((item) => <div key={item.label} className="flex items-center gap-3 border-r border-white/20 last:border-0 sm:justify-center"><item.icon size={29} /><span className="text-center text-xs font-semibold leading-5">{item.label}<br />{item.sub}</span></div>)}
           </div>
