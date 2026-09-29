@@ -1,0 +1,28 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root { color-scheme: light; --background: #ffffff; --foreground: #10285d; --radius: 0.75rem; }
+@theme inline { --color-background: var(--background); --color-foreground: var(--foreground); --radius-sm: calc(var(--radius) * 0.6); --radius-md: calc(var(--radius) * 0.8); --radius-lg: var(--radius); --radius-xl: calc(var(--radius) * 1.4); }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--background); color: var(--foreground); font-family: Arial, Helvetica, sans-serif; }
+a { text-decoration: none; }
+.nav-link { display: inline-flex; align-items: center; gap: 3px; color: #10285d; transition: color .2s; }
+.nav-link:hover, .nav-link.active { color: #ff7411; }
+.nav-link.active { border-bottom: 2px solid #ff7411; padding-bottom: 25px; padding-top: 27px; }
+.orange-button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 8px; background: #ff7411; color: white; font-weight: 700; transition: transform .2s, background .2s; }
+.orange-button:hover { background: #e86205; transform: translateY(-2px); }
+.outline-button, .outline-blue-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 8px; font-weight: 700; }
+.outline-button { border: 1px solid white; color: white; }
+.outline-blue-button { border: 1px solid #0956bd; color: #0956bd; padding: 12px 18px; font-size: 14px; }
+.section-kicker { display: flex; align-items: center; gap: 12px; color: #005bd4; font-size: 12px; font-weight: 800; letter-spacing: .32em; text-transform: uppercase; }
+.section-kicker span { display: inline-block; width: 54px; height: 2px; background: #ff7411; }
+.section-title { margin-top: 10px; color: #10285d; font-size: clamp(2rem, 3vw, 3rem); font-weight: 800; line-height: 1.12; letter-spacing: -.03em; }
+.section-title span { color: #ff7411; }
+.product-card { overflow: hidden; border: 1px solid #dce7f3; border-radius: 10px; background: white; box-shadow: 0 4px 16px rgba(16,40,93,.04); transition: transform .2s, box-shadow .2s; }
+.product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 26px rgba(16,40,93,.1); }
+.hero { min-height: 570px; }
+@media (max-width: 640px) { .hero { min-height: 650px; } .nav-link.active { padding-bottom: 20px; padding-top: 22px; } }
