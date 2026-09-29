@@ -23,7 +23,7 @@ const heroImage = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatG
 const warehouseImage = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Sep%2029%2C%202026%2C%2011_19_17%20AM-MZoar9o9Kvoe2mMkj7Yo3tf8Ut1Hvs.png"
 
 const products = [
-  { name: "Gypsum Boards", detail: "RG, MR & FR", image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Sep%2029%2C%202026%2C%2011_19_17%20AM-MZoar9o9Kvoe2mMkj7Yo3tf8Ut1Hvs.png" },
+  { name: "Gypsum Boards", detail: "RG, MR & FR", image: "/products/gypsum-boards.png" },
   { name: "Metal Profiles", detail: "Channels, Angles, Studs, Tracks", image: heroImage },
   { name: "Marine Plywood", detail: "Film faced, 12mm, 15mm, 18mm", image: warehouseImage },
   { name: "MDF Board", detail: "3mm, 6mm, 9mm, 12mm, 16mm", image: heroImage },
@@ -43,7 +43,7 @@ const benefits = [
 ]
 
 const translations = {
-  en: { home: "Home", products: "Products", about: "About Us", contact: "Contact", quote: "Get a Quote", eyebrow: "Building a stronger tomorrow", title: "Your Trusted Partner in", titleAccent: "Building Materials", description: "High quality building materials for every project. Reliable supply. Competitive prices. Delivered across UAE.", explore: "Explore Products", language: "Language" },
+  en: { home: "Home", products: "Products", about: "About Us", contact: "Contact", quote: "Get a Quote", eyebrow: "Building a stronger tomorrow", title: "Your Trusted Partner in", titleAccent: "Building Materials", description: "High quality building materials for residential, commercial and industrial projects across UAE. Reliable supply. Competitive prices. Delivered on time.", explore: "Explore Products", language: "Language" },
   ar: { home: "الرئيسية", products: "المنتجات", about: "من نحن", contact: "اتصل بنا", quote: "اطلب عرض سعر", eyebrow: "نبني غداً أقوى", title: "شريكك الموثوق في", titleAccent: "مواد البناء", description: "مواد بناء عالية الجودة لكل مشروع. توريد موثوق وأسعار تنافسية وتسليم في جميع أنحاء الإمارات.", explore: "استكشف المنتجات", language: "اللغة" },
 }
 
@@ -89,7 +89,7 @@ export default function Page() {
       <section id="home" className="hero relative overflow-hidden">
         <Image src={heroImage} alt="Dubai skyline and building materials at a construction site" fill priority className="object-cover object-center" unoptimized />
         <div className="absolute inset-0 bg-gradient-to-r from-[#062552]/95 via-[#092d5c]/80 to-[#092d5c]/10" />
-        <div className="relative mx-auto flex min-h-[570px] max-w-[1440px] flex-col justify-center px-6 py-20 lg:px-20">
+        <div className="relative mx-auto flex min-h-[430px] max-w-[1440px] flex-col justify-center px-6 py-14 lg:px-20">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.48em] text-white/80">{t.eyebrow}</p>
           <h1 className="max-w-[650px] text-5xl font-extrabold leading-[1.08] tracking-tight text-white md:text-7xl">{t.title} <span className="text-[#ff8a1d]">{t.titleAccent}</span></h1>
           <p className="mt-6 max-w-[600px] text-lg leading-8 text-white/90 md:text-xl">{t.description}</p>
@@ -100,9 +100,9 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="products" className="mx-auto max-w-[1440px] px-6 py-20 lg:px-20">
+      <section id="products" className="mx-auto max-w-[1440px] px-6 py-10 lg:px-10">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-5"><div><p className="section-kicker">Our products <span /></p><h2 className="section-title">Building Materials for Every Need</h2><p className="mt-2 text-base text-[#607397]">Explore our wide range of high quality building materials for residential, commercial and industrial projects.</p></div><a href="/products" className="outline-blue-button">View All Products <ArrowRight size={16} /></a></div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">{products.map((product) => <article key={product.name} className="product-card"><div className="relative h-36 overflow-hidden bg-[#eaf1f8]"><Image src={product.image} alt={product.name} fill className="object-cover" unoptimized /></div><div className="p-4"><h3 className="font-bold text-[#10285d]">{product.name}</h3><p className="mt-1 min-h-10 text-xs leading-5 text-[#607397]">{product.detail}</p><a href="#contact" className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-[#005bd4]">View Products <ArrowRight size={14} /></a></div></article>)}</div>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">{products.map((product) => <article key={product.name} className="product-card"><div className="relative h-28 overflow-hidden bg-[#eaf1f8]"><Image src={product.image} alt={product.name} fill className="object-cover" unoptimized /></div><div className="p-4"><h3 className="font-bold text-[#10285d]">{product.name}</h3><p className="mt-1 min-h-10 text-xs leading-5 text-[#607397]">{product.detail}</p><a href="#contact" className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-[#005bd4]">View Products <ArrowRight size={14} /></a></div></article>)}</div>
       </section>
 
       <section id="about" className="bg-[#f5f9fd] px-6 py-20 lg:px-20"><div className="mx-auto grid max-w-[1280px] items-center gap-12 lg:grid-cols-[1fr_1.1fr]"><div><p className="section-kicker">About NVS <span /></p><h2 className="section-title">Materials that move <span>projects forward.</span></h2><p className="mt-6 text-base leading-8 text-[#607397]">NVS Star Building Materials Trading LLC is a trusted supplier of quality building materials based in Al Quoz Industrial Area 2, Dubai, U.A.E. We serve residential, commercial and industrial projects with reliable supply, competitive pricing and exceptional customer service.</p><div className="mt-8 grid grid-cols-2 gap-6"><div><strong className="text-3xl text-[#ff7411]">15+</strong><p className="mt-1 text-sm font-semibold">Product Categories</p></div><div><strong className="text-3xl text-[#ff7411]">100+</strong><p className="mt-1 text-sm font-semibold">Trusted Brands</p></div><div><strong className="text-3xl text-[#ff7411]">500+</strong><p className="mt-1 text-sm font-semibold">Projects Supplied</p></div><div><strong className="text-3xl text-[#ff7411]">UAE</strong><p className="mt-1 text-sm font-semibold">Wide Distribution</p></div></div></div><div className="relative min-h-[380px] overflow-hidden rounded-2xl"><Image src={warehouseImage} alt="NVS Star warehouse and building material stock" fill className="object-cover" unoptimized /><div className="absolute bottom-5 left-5 rounded-xl bg-white p-4 shadow-lg"><div className="flex items-center gap-3"><Building2 className="text-[#ff7411]" /><div><p className="font-bold">Our Facility</p><p className="text-xs text-[#607397]">Al Quoz Industrial Area 2, Dubai</p></div></div></div></div></div></section>
