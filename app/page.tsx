@@ -55,9 +55,12 @@ export default function Page() {
     <main dir={language === "ar" ? "rtl" : "ltr"} className="min-h-screen bg-white text-[#10285d]">
       <header className="sticky top-0 z-50 border-b border-[#e8eef7] bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-[48px] max-w-[1440px] items-center gap-3 px-3 sm:h-[78px] sm:gap-8 sm:px-5 lg:px-10">
-          <a href="#home" className="flex shrink-0 items-center gap-3" aria-label="NVS Star home">
-            <Image src={logo} alt="NVS Star Building Materials Trading LLC" width={178} height={86} className="h-[58px] w-[112px] object-contain object-center sm:h-[65px] sm:w-[136px]" unoptimized />
-            <span className="hidden leading-tight sm:block"><strong className="block text-[15px] font-extrabold tracking-tight text-[#10285d]">NVS STAR</strong><span className="text-[11px] font-medium text-[#607397]">Building Materials</span></span>
+          <a href="#home" className="flex min-w-0 shrink-0 items-center gap-2" aria-label="NVS Star Building Materials Trading LLC">
+            <Image src={logo} alt="NVS Star logo" width={92} height={86} className="h-[38px] w-[48px] object-contain sm:h-[62px] sm:w-[72px]" unoptimized />
+            <span className="block leading-[1.05] whitespace-nowrap">
+              <span className="block text-[7px] font-bold text-[#df3c18] sm:text-[11px]">شركة نجمة ان في اس لمواد البناء</span>
+              <strong className="block text-[9px] font-extrabold tracking-tight text-[#063a91] sm:text-[15px]">NVS STAR BUILDING MATERIALS TRADING LLC.</strong>
+            </span>
           </a>
           <nav className="flex flex-1 items-center justify-center gap-8 text-[11px] font-semibold sm:text-[14px] lg:gap-8">
             <a className="nav-link active" href="#home">{t.home}</a>
