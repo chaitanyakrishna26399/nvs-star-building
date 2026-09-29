@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
 import {
   ArrowRight,
@@ -39,26 +42,47 @@ const benefits = [
   { icon: Headphones, title: "Dedicated Support", text: "Get expert assistance anytime" },
 ]
 
+const translations = {
+  en: { home: "Home", products: "Products", about: "About Us", contact: "Contact", quote: "Get a Quote", eyebrow: "Building a stronger tomorrow", title: "Your Trusted Partner in", titleAccent: "Building Materials", description: "High quality building materials for every project. Reliable supply. Competitive prices. Delivered across UAE.", explore: "Explore Products", language: "Language" },
+  ar: { home: "الرئيسية", products: "المنتجات", about: "من نحن", contact: "اتصل بنا", quote: "اطلب عرض سعر", eyebrow: "نبني غداً أقوى", title: "شريكك الموثوق في", titleAccent: "مواد البناء", description: "مواد بناء عالية الجودة لكل مشروع. توريد موثوق وأسعار تنافسية وتسليم في جميع أنحاء الإمارات.", explore: "استكشف المنتجات", language: "اللغة" },
+}
+
 export default function Page() {
+  const [language, setLanguage] = useState<"en" | "ar">("en")
+  const t = translations[language]
+
   return (
-    <main className="min-h-screen bg-white text-[#10285d]">
+    <main dir={language === "ar" ? "rtl" : "ltr"} className="min-h-screen bg-white text-[#10285d]">
       <header className="sticky top-0 z-50 border-b border-[#e8eef7] bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-[78px] max-w-[1440px] items-center gap-8 px-5 lg:px-10">
           <a href="#home" className="shrink-0" aria-label="NVS Star home">
             <Image src={logo} alt="NVS Star Building Materials Trading LLC" width={178} height={86} className="h-[65px] w-[136px] object-contain object-center sm:w-[170px]" unoptimized />
           </a>
           <nav className="hidden flex-1 items-center justify-center gap-8 text-[14px] font-semibold lg:flex">
-            <a className="nav-link active" href="#home">Home</a>
-            <a className="nav-link" href="#products">Products <ChevronDown size={14} /></a>
-            <a className="nav-link" href="#about">About Us</a>
-            <a className="nav-link" href="#contact">Contact</a>
+            <a className="nav-link active" href="#home">{t.home}</a>
+            <a className="nav-link" href="#products">{t.products} <ChevronDown size={14} /></a>
+            <a className="nav-link" href="#about">{t.about}</a>
+            <a className="nav-link" href="#contact">{t.contact}</a>
           </nav>
           <div className="hidden items-center gap-4 xl:flex">
+            <label className="flex items-center gap-2 rounded-lg border border-[#d9e5f4] bg-[#f5f9fe] px-3 py-2 text-xs font-semibold text-[#526789]" aria-label={t.language}>
+              <span>{language === "en" ? "EN" : "ع"}</span>
+              <select value={language} onChange={(event) => setLanguage(event.target.value as "en" | "ar")} className="bg-transparent outline-none" aria-label={t.language}>
+                <option value="en">English</option>
+                <option value="ar">العربية</option>
+              </select>
+            </label>
             <div className="flex h-10 w-[220px] items-center gap-2 rounded-lg border border-[#d9e5f4] bg-[#f5f9fe] px-3 text-xs text-[#526789]"><Search size={17} /><span>Search products...</span></div>
             <div className="flex items-center gap-2 whitespace-nowrap text-sm font-bold"><Phone size={18} fill="currentColor" /> +971 558 863 912</div>
             <a className="orange-button px-5 py-3 text-sm" href="#contact">Get a Quote <ArrowRight size={16} /></a>
           </div>
-          <button className="ml-auto rounded-md p-2 lg:hidden" aria-label="Open menu"><Menu /></button>
+          <div className="ml-auto flex items-center gap-2 lg:hidden">
+            <select value={language} onChange={(event) => setLanguage(event.target.value as "en" | "ar")} className="rounded-md border border-[#d9e5f4] bg-[#f5f9fe] px-2 py-2 text-xs font-semibold text-[#10285d]" aria-label={t.language}>
+              <option value="en">EN</option>
+              <option value="ar">عربي</option>
+            </select>
+            <button className="rounded-md p-2" aria-label="Open menu"><Menu /></button>
+          </div>
         </div>
       </header>
 
@@ -66,10 +90,10 @@ export default function Page() {
         <Image src={heroImage} alt="Dubai skyline and building materials at a construction site" fill priority className="object-cover object-center" unoptimized />
         <div className="absolute inset-0 bg-gradient-to-r from-[#062552]/95 via-[#092d5c]/80 to-[#092d5c]/10" />
         <div className="relative mx-auto flex min-h-[570px] max-w-[1440px] flex-col justify-center px-6 py-20 lg:px-20">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.48em] text-white/80">Building a stronger tomorrow</p>
-          <h1 className="max-w-[650px] text-5xl font-extrabold leading-[1.08] tracking-tight text-white md:text-7xl">Your Trusted Partner in <span className="text-[#ff8a1d]">Building Materials</span></h1>
-          <p className="mt-6 max-w-[600px] text-lg leading-8 text-white/90 md:text-xl">High quality building materials for every project. Reliable supply. Competitive prices. Delivered across UAE.</p>
-          <div className="mt-8 flex flex-wrap gap-4"><a href="#products" className="orange-button px-7 py-4">Explore Products <ArrowRight size={18} /></a><a href="#contact" className="outline-button px-7 py-4">Get a Quote</a></div>
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.48em] text-white/80">{t.eyebrow}</p>
+          <h1 className="max-w-[650px] text-5xl font-extrabold leading-[1.08] tracking-tight text-white md:text-7xl">{t.title} <span className="text-[#ff8a1d]">{t.titleAccent}</span></h1>
+          <p className="mt-6 max-w-[600px] text-lg leading-8 text-white/90 md:text-xl">{t.description}</p>
+          <div className="mt-8 flex flex-wrap gap-4"><a href="#products" className="orange-button px-7 py-4">{t.explore} <ArrowRight size={18} /></a><a href="#contact" className="outline-button px-7 py-4">{t.quote}</a></div>
           <div className="mt-14 grid max-w-[650px] grid-cols-2 gap-y-6 border-t border-white/25 pt-6 text-white sm:grid-cols-4">
             {[{icon: ShieldCheck, label:"Wide Range", sub:"of Products"},{icon: BadgeCheck, label:"Trusted Brands", sub:"& Quality"},{icon: PackageCheck, label:"Competitive", sub:"Pricing"},{icon: Truck, label:"Fast & Reliable", sub:"Supply"}].map((item) => <div key={item.label} className="flex items-center gap-3 border-r border-white/20 last:border-0 sm:justify-center"><item.icon size={29} /><span className="text-center text-xs font-semibold leading-5">{item.label}<br />{item.sub}</span></div>)}
           </div>
