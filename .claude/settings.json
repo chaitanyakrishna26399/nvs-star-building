@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /home/saiteja/nvs-star-building; which chromium chromium-browser google-chrome 2>/dev/null; ls ~/.cache/ms-playwright 2>/dev/null)",
+      "Read(//home/saiteja/.cache/**)"
+    ]
+  }
+}
